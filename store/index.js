@@ -23,7 +23,7 @@ const createStore = () => {
     actions,
 
     getters: {
-      getAuthorById: state => authorId => state.authors.find(author => author.id === 2),
+      getAuthorById: state => authorId => state.authors.find(author => author.id === authorId),
 
       getCallsToActionByCategory: state => (categoryName) => {
         const actionsByService = state.callsToAction.filter(
