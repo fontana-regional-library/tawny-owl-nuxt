@@ -120,18 +120,6 @@ const createStore = () => {
         return content[Math.floor(Math.random() * content.length)];
       },
 
-      getMoreContent({commit}, serviceQuery) {
-        return new Promise(resolve => {
-          axios
-            .get(urls[serviceQuery.contentType] + serviceQuery.urlParams)
-            .then(({data}) => {
-              let payload = {'content': data, 'contentType': serviceQuery.contentType};
-              commit("addMoreContent", payload);
-              resolve();
-            });
-        });
-      },
-
       getSiteContent: state => () => { // eslint-disable-line
         return [
           ...state.collection,
